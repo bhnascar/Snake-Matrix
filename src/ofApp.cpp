@@ -18,8 +18,6 @@ void ofApp::setup() {
     
     // Load font
     font.loadFont("Tahoma.ttf", 18, true, true);
-    
-    ofHideCursor();
 }
 
 void ofApp::precomputeDrawingVariables() {
@@ -102,6 +100,10 @@ ofColor ofApp::colorForFoodState(SMState state) {
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    // Hack to fix mouse disappearance bug.
+    ofHideCursor();
+    ofShowCursor();
+    
     SMState foodState = sm->GetFoodState();
     ofClear(colorForFoodState(foodState) * 0.1);
     
@@ -197,11 +199,6 @@ void ofApp::keyPressed(int key) {
         default:
             break;
     }
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {
-    ofShowCursor();
 }
 
 //--------------------------------------------------------------
