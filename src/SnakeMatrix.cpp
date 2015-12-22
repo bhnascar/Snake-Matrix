@@ -82,6 +82,10 @@ void SnakeMatrix::RemoveState(SMState state, int x, int y) {
     matrix[y * width + x] &= ~state;
 }
 
+SMLocation SnakeMatrix::GetHeadPosition() {
+    return head;
+}
+
 SMState SnakeMatrix::GetFoodState() {
     return foodState;
 }

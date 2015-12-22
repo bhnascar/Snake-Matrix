@@ -52,6 +52,9 @@ public:
     bool isSquareFood(int x, int y);
     bool isTriangleFood(int x, int y);
     
+    /* Returns the head position of the snake. */
+    SMLocation GetHeadPosition();
+    
     /* Returns the food state of the snake, i.e. the last type of food
      * it consumed. */
     SMState GetFoodState();

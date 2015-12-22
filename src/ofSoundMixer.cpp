@@ -7,7 +7,7 @@ ofSoundMixer::ofSoundMixer(ofBaseApp* app, int numSources) {
         // Create sound properties
         SMSoundProperties properties;
         properties.volume = 0.f;
-        properties.freq = 330.f + i * 110.f;
+        properties.freq = 770.f - i * 110.f;
         sourceProperties.push_back(properties);
     }
     

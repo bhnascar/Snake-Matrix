@@ -18,6 +18,8 @@ void ofApp::setup() {
     
     // Load font
     font.loadFont("Tahoma.ttf", 18, true, true);
+    
+    ofHideCursor();
 }
 
 void ofApp::precomputeDrawingVariables() {
@@ -110,7 +112,10 @@ void ofApp::draw(){
             ofColor currentColor;
             
             // Set square color based on properties.
-            if (sm->isSnake(x, y)) {
+            if (x == sm->GetHeadPosition().x && y == sm->GetHeadPosition().y) {
+                currentColor = ofColor(255, 255, 255, 255);
+            }
+            else if (sm->isSnake(x, y)) {
                 if (foodState) {
                     currentColor = colorForFoodState(foodState);
                 }
@@ -192,6 +197,11 @@ void ofApp::keyPressed(int key) {
         default:
             break;
     }
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseMoved(int x, int y) {
+    ofShowCursor();
 }
 
 //--------------------------------------------------------------
